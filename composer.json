@@ -23,5 +23,10 @@
             "Skimia\\Foundation\\": "src/"
         }
     },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
+        ]
+    },
     "minimum-stability": "dev"
 }
