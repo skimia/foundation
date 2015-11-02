@@ -13,7 +13,7 @@ before_install:
   - composer create-project laravel/laravel
   - cd ./laravel
   - composer require "skimia/foundation" dev-master
-  - composer update
+  - composer update --dev --no-interaction
   - cd ./vendor/skimia/foundation
 
 after_script:
