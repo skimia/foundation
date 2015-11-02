@@ -13,12 +13,11 @@ before_install:
   - composer create-project laravel/laravel
   - cd ./laravel
   - composer require "skimia/foundation" dev-master
+  - composer require "satooshi/php-coveralls" dev-master
   - composer update
-  - ls ./vendor
   - cd ./vendor/skimia/foundation
 
 after_script:
   - php ../../bin/coveralls -v
-  - ls ../../
 
 script: phpunit
