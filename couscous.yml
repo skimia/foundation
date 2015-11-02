@@ -1,0 +1,34 @@
+template:
+    url: https://github.com/CouscousPHP/Template-Dark
+
+exclude:
+    - src
+    - tests
+    - vendor
+
+baseUrl: http://skimia.github.io/Foundation
+
+github:
+    user: skimia
+    repo: Foundation
+
+title: Skimia\Foundation
+subTitle: The skimia Package to add laravel features
+
+
+menu:
+    sections:
+        main:
+            name: Main documentation
+            items:
+                home:
+                    text: Home page
+                    # You can use relative urls
+                    relativeUrl: doc/faq.html
+                foo:
+                    text: Another link
+                    # Or absolute urls
+                    absoluteUrl: https://example.com
+        other:
+            name: Other topics
+            items:

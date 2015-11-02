@@ -1,0 +1,19 @@
+{
+    "name": "skimia/foundation",
+    "description": "fournis une multitude de helpers et de fonctionnalitées préconçues pour gagner du temps",
+    "require": {
+        "laravelcollective/annotations": "5.1.*"
+    },
+    "require-dev": {
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "4.8.x-dev@dev"
+    },
+    "license": "GNU GPL",
+    "authors": [
+        {
+            "name": "Kessler Dev",
+            "email": "kessler.dev@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
