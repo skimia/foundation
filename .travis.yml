@@ -17,6 +17,7 @@ before_install:
   - cd ./vendor/skimia/foundation
 
 after_script:
-  - php ../../bin/coveralls -v
+  - php ./laravel/vendor/bin/coveralls -v
+  - pwd
 
 script: phpunit
