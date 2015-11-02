@@ -15,5 +15,13 @@
             "email": "kessler.dev@gmail.com"
         }
     ],
+    "autoload": {
+        "files": [
+            "src/Exceptions/Fail/helpers.php"
+        ],
+        "psr-4": {
+            "Skimia\\Foundation\\": "src/"
+        }
+    },
     "minimum-stability": "dev"
 }
