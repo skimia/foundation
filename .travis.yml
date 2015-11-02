@@ -8,8 +8,11 @@ matrix:
     allow_failures:
         - php: hhvm
 
-before_script:
-  - curl -s http://getcomposer.org/installer | php
-  - php composer.phar install --dev
+before_install:
+  - composer self-update
+  - composer create-project laravel/laravel
+  - cd ./laravel
+  - composer require "skimia/foundation" dev-master
+  - composer update
 
 script: phpunit
