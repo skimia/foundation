@@ -13,11 +13,12 @@ before_install:
   - composer create-project laravel/laravel
   - cd ./laravel
   - composer require "skimia/foundation" dev-master
-  - composer update --dev --no-interaction
+  - composer update
+  - ls ./vendor
   - cd ./vendor/skimia/foundation
 
 after_script:
   - php ../../bin/coveralls -v
-  - pwd
+  - ls ../../
 
 script: phpunit
