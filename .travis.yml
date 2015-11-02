@@ -15,5 +15,8 @@ before_install:
   - composer require "skimia/foundation" dev-master
   - composer update
   - cd ./vendor/skimia/foundation
+  
+after_success:
+  - coveralls
 
 script: phpunit
