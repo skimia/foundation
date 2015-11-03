@@ -17,11 +17,16 @@ before_install:
   - composer update
   - cd ./vendor/skimia/foundation
 
+before_script:
+  - mkdir -p build/logs
+
+script:
+  - phpunit --coverage-clover build/logs/clover.xml
+
 after_script:
   - php ../../bin/coveralls -h
   - php ../../bin/coveralls -v
   - ls
   - ls src
   - ../../bin/coveralls -v
-
-script: phpunit
+  
