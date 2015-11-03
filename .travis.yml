@@ -26,3 +26,4 @@ script:
 
 after_script:
   - php ../../bin/coveralls -v -c vendor/skimia/foundation/.coveralls.yml
+  - cat build/logs/coveralls-upload.json
