@@ -2,6 +2,8 @@ language: php
 
 php:
   - 5.6
+  - 5.7
+  - 7
   - hhvm
 
 matrix:
@@ -9,22 +11,15 @@ matrix:
         - php: hhvm
 
 before_install:
+  - pip install --user codecov
   - composer self-update
   - composer create-project laravel/laravel
   - cd ./laravel
-  - composer require 'phpunit/phpcov=*'
   - composer require "skimia/foundation" dev-master
-  - composer require "satooshi/php-coveralls" dev-master
   - cd ./vendor/skimia/foundation
 
-before_script:
-  - mkdir -p build/logs
-  - mkdir -p build/cov
-
 script:
-  - phpunit --coverage-php build/cov/coverage-${component_name}.cov
+  - phpunit --coverage-clover=coverage.xml
 
-after_script:
-  - php ../../bin/phpcov.php --merge --clover build/logs/clover.xml --whitelist /src build/cov
-  - php ../../bin/coveralls -v -c vendor/skimia/foundation/.coveralls.yml
-  - cat build/logs/coveralls-upload.json | nc termbin.com 9999
+after_success:
+  - codecov
