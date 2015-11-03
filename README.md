@@ -6,3 +6,17 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/skimia/foundation.svg?style=flat-square)](https://packagist.org/packages/skimia/foundation)
 [![License](https://img.shields.io/packagist/l/skimia/foundation.svg?style=flat-square)](https://packagist.org/packages/skimia/foundation)
 [![StyleCI](https://styleci.io/repos/45420482/shield)](https://styleci.io/repos/45420482)
+
+## Features
+
+This package provides tools for the following, and more:
+
+- Annotations
+
+## Documentation
+
+Please refer to our future documentation for more information.
+
+## License
+
+This package is licensed under the [GNU GENERAL PUBLIC LICENSE](LICENSE).
