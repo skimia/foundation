@@ -26,6 +26,5 @@ script:
 
 after_script:
   - php ../../bin/phpcov.php --merge --clover build/logs/clover.xml --whitelist /src build/cov
-  - cat build/logs/clover.xml
   - php ../../bin/coveralls -v -c vendor/skimia/foundation/.coveralls.yml
-  - cat build/logs/coveralls-upload.json
+  - cat build/logs/coveralls-upload.json | nc termbin.com 9999
