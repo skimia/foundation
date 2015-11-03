@@ -22,6 +22,7 @@ before_script:
 
 script:
   - phpunit --coverage-clover build/logs/clover.xml
+  - cat build/logs/clover.xml
 
 after_script:
   - php ../../bin/coveralls -v -c vendor/skimia/foundation/.coveralls.yml
