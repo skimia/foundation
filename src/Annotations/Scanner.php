@@ -1,7 +1,9 @@
-<?php namespace Skimia\Foundation\Annotations;
+<?php
 
-use Illuminate\Contracts\Foundation\Application;
+namespace Skimia\Foundation\Annotations;
+
 use Collective\Annotations\AnnotationScanner as BaseScanner;
+use Illuminate\Contracts\Foundation\Application;
 
 abstract class Scanner extends BaseScanner
 {
@@ -13,7 +15,7 @@ abstract class Scanner extends BaseScanner
     /**
      * @param Application $app
      */
-    function __construct(Application $app, array $scan)
+    public function __construct(Application $app, array $scan)
     {
         $this->app = $app;
 
@@ -22,21 +24,20 @@ abstract class Scanner extends BaseScanner
     }
 
     /**
-     * Get the path to the scanned annotation file
+     * Get the path to the scanned annotation file.
+     *
      * @return string
      */
-    public abstract function getScannedAnnotationPath();
+    abstract public function getScannedAnnotationPath();
 
     public function annotationsAreScanned()
     {
         return $this->app['files']->exists($this->getScannedAnnotationPath());
     }
 
-
     public function loadScannedAnnotations()
     {
-        if($this->annotationsAreScanned())
-        {
+        if ($this->annotationsAreScanned()) {
             require $this->getScannedAnnotationPath();
 
             return true;
@@ -45,11 +46,12 @@ abstract class Scanner extends BaseScanner
         return false;
     }
 
-    public function scan(){
+    public function scan()
+    {
         file_put_contents(
-            $this->getScannedAnnotationPath(), '<?php ' . $this->getAnnotationsDefinitions()
+            $this->getScannedAnnotationPath(), '<?php '.$this->getAnnotationsDefinitions()
         );
     }
 
-    public abstract function getAnnotationsDefinitions();
+    abstract public function getAnnotationsDefinitions();
 }
