@@ -17,6 +17,7 @@ class AnnotationRegistryTest extends TestCase
      */
     public function registerAnnotations()
     {
+      
         $scanner = new \Skimia\ApiFusion\Annotations\ApiRouting\Scanner($this->app,[]);
 
         foreach (Finder::create()->files()->in(__DIR__.'/fixtures/Annotations') as $file)
