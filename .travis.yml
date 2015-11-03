@@ -23,9 +23,9 @@ before_script:
 
 script:
   - phpunit --coverage-php build/cov/coverage-${component_name}.cov
-  - cat build/logs/clover.xml
 
 after_script:
   - php ../../bin/phpcov.php --merge --clover build/logs/clover.xml --whitelist /src build/cov
+  - cat build/logs/clover.xml
   - php ../../bin/coveralls -v -c vendor/skimia/foundation/.coveralls.yml
   - cat build/logs/coveralls-upload.json
