@@ -1,2 +1,2 @@
-src_dir: vendors/skimia/foundation/src
-coverage_clover: vendors/skimia/foundation/build/logs/clover.xml
+src_dir: vendor/skimia/foundation/src
+coverage_clover: vendor/skimia/foundation/build/logs/clover.xml
