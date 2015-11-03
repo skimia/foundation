@@ -18,6 +18,7 @@ before_install:
   - cd ./vendor/skimia/foundation
 
 after_script:
+  - php ../../bin/coveralls -h
   - php ../../bin/coveralls -v
   - ls
   - ls src
