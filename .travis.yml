@@ -25,8 +25,7 @@ script:
 
 after_script:
   - php ../../bin/coveralls -h
-  - php ../../bin/coveralls -v
+  - php ../../bin/coveralls -v -c vendor/skimia/foundation/.coveralls.yml
   - ls
   - ls src
   - ../../bin/coveralls -v
-  
