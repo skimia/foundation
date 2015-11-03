@@ -1,4 +1,6 @@
-<?php namespace Skimia\Foundation\Support\Traits;
+<?php
+
+namespace Skimia\Foundation\Support\Traits;
 
 use Illuminate\Console\AppNamespaceDetectorTrait;
 
@@ -7,7 +9,7 @@ trait NamespaceClassFinderTrait
     use AppNamespaceDetectorTrait;
 
     /**
-     * Convert the given namespace to a file path
+     * Convert the given namespace to a file path.
      *
      * @param  string $namespace the namespace to convert
      *
@@ -18,8 +20,7 @@ trait NamespaceClassFinderTrait
         // remove the app namespace from the namespace if it is there
         $appNamespace = $this->getAppNamespace();
 
-        if (substr($namespace, 0, strlen($appNamespace)) == $appNamespace)
-        {
+        if (substr($namespace, 0, strlen($appNamespace)) == $appNamespace) {
             $namespace = substr($namespace, strlen($appNamespace));
         }
 
@@ -29,7 +30,7 @@ trait NamespaceClassFinderTrait
 
     /**
      * Get a list of the classes in a namespace. Leaving the second argument
-     * will scan for classes within the project's app directory
+     * will scan for classes within the project's app directory.
      *
      * @param string  $namespace the namespace to search
      * @param null    $base
@@ -38,7 +39,7 @@ trait NamespaceClassFinderTrait
      */
     public function getClassesFromNamespace($namespace, $base = null)
     {
-        $directory = ($base ?: app('path')) . '/' . $this->convertNamespaceToPath($namespace);
+        $directory = ($base ?: app('path')).'/'.$this->convertNamespaceToPath($namespace);
 
         return app('Illuminate\Filesystem\ClassFinder')->findClasses($directory);
     }

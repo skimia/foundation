@@ -1,11 +1,11 @@
-<?php namespace Skimia\Foundation;
+<?php
 
+namespace Skimia\Foundation;
 
 use Illuminate\Support\ServiceProvider;
 
 class FoundationServiceProvider extends ServiceProvider
 {
-
     /**
      * Register the service provider.
      *

@@ -1,14 +1,13 @@
-<?php namespace Skimia\Foundation\Annotations;
+<?php
 
+namespace Skimia\Foundation\Annotations;
 
 use Illuminate\Support\ServiceProvider;
-use Skimia\Foundation\Providers\Traits\CommandLoaderTrait;
 use Skimia\Foundation\Support\Traits\NamespaceClassFinderTrait;
 use Illuminate\Contracts\Foundation\Application;
 
 abstract class BaseServiceProvider extends ServiceProvider
 {
-
     use NamespaceClassFinderTrait;
 
     /**
@@ -33,7 +32,6 @@ abstract class BaseServiceProvider extends ServiceProvider
      */
     protected $scanEverything = true;
 
-
     /**
      * @param \Illuminate\Contracts\Foundation\Application $app
      */
@@ -52,8 +50,9 @@ abstract class BaseServiceProvider extends ServiceProvider
     {
         $this->registerAnnotationScanner();
 
-        if(method_exists($this,'registerCommands'))
+        if (method_exists($this, 'registerCommands')) {
             $this->registerCommands();
+        }
     }
 
     /**
@@ -66,7 +65,6 @@ abstract class BaseServiceProvider extends ServiceProvider
         $this->addAnnotations($this->getAnnotationScanner());
 
         $this->loadAnnotated();
-
     }
 
     /**
@@ -74,22 +72,21 @@ abstract class BaseServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected abstract function registerAnnotationScanner();
+    abstract protected function registerAnnotationScanner();
 
     /**
      * @return Scanner
      */
-    protected abstract function getAnnotationScanner();
+    abstract protected function getAnnotationScanner();
 
     /**
-     * Add annotation classes to the api routing scanner
+     * Add annotation classes to the api routing scanner.
      *
      * @param Scanner $scanner
      */
     public function addAnnotations(Scanner $scanner)
     {
     }
-
 
     /**
      * Scan the events for the application.
@@ -100,8 +97,7 @@ abstract class BaseServiceProvider extends ServiceProvider
     {
         $scans = $this->classesToScan();
 
-        if (empty($scans))
-        {
+        if (empty($scans)) {
             return;
         }
 
@@ -119,15 +115,13 @@ abstract class BaseServiceProvider extends ServiceProvider
      */
     public function loadAnnotated()
     {
-        if ($this->app->environment('local') && $this->scanWhenLocal)
-        {
+        if ($this->app->environment('local') && $this->scanWhenLocal) {
             $this->scanAnnotations();
         }
 
         $scans = $this->classesToScan();
 
-        if ( ! empty($scans) && $this->getAnnotationScanner()->annotationsAreScanned())
-        {
+        if (! empty($scans) && $this->getAnnotationScanner()->annotationsAreScanned()) {
             $this->getAnnotationScanner()->loadScannedAnnotations();
         }
     }
@@ -139,12 +133,10 @@ abstract class BaseServiceProvider extends ServiceProvider
      */
     public function classesToScan()
     {
-        if ($this->scanEverything)
-        {
+        if ($this->scanEverything) {
             return $this->getAllClasses();
         }
 
         return $this->classesToScan;
     }
-
 }

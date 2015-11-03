@@ -4,8 +4,8 @@
 /**
  * @Annotation
  */
-class TestAnnotation {
-
+class TestAnnotation
+{
     /**
      * The events the annotation hears.
      *
@@ -37,9 +37,9 @@ class TestAnnotation {
     public function __construct(array $values = [])
     {
         $this->resourceEndPoint = $values['value'];
-        $this->version =  $values['version'];
+        $this->version = $values['version'];
 
-        unset($values['value'],$values['version']);
+        unset($values['value'], $values['version']);
 
         $this->values = (array) $values;
     }
