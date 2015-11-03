@@ -21,5 +21,6 @@ after_script:
   - php ../../bin/coveralls -v
   - ls
   - ls src
+  - ../../bin/coveralls -v
 
 script: phpunit
