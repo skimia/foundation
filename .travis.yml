@@ -1,5 +1,7 @@
 language: php
 
+sudo: false
+
 php:
   - 5.6
   - 7
@@ -10,7 +12,6 @@ matrix:
         - php: hhvm
 
 before_install:
-  - pip install --user codecov
   - composer self-update
   - composer create-project laravel/laravel
   - cd ./laravel
