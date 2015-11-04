@@ -15,7 +15,7 @@ This package provides tools for the following, and more:
 
 ## Documentation
 
-Please refer to our future documentation for more information.
+Please refer to our [online documentation](http://skimia.github.io/foundation/) for more information.
 
 ## License
 

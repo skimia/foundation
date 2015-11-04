@@ -6,11 +6,11 @@ exclude:
     - tests
     - vendor
 
-baseUrl: http://skimia.github.io/Foundation
+baseUrl: http://skimia.github.io/foundation
 
 github:
     user: skimia
-    repo: Foundation
+    repo: foundation
 
 title: Skimia\Foundation
 subTitle: The skimia Package to add laravel features
