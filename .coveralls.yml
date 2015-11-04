@@ -1,4 +1,0 @@
-src_dir: vendor/skimia/foundation/src
-coverage_clover: vendor/skimia/foundation/build/logs/clover.xml
-json_path: vendor/skimia/foundation/build/logs/coveralls-upload.json
-service_name: travis-ci
