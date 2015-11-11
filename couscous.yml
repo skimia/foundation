@@ -18,13 +18,12 @@ subTitle: The skimia Package to add laravel features
 
 menu:
     sections:
-        main:
-            name: Main documentation
+        introduction:
+            name: Introduction
             items:
-                home:
-                    text: Home page
-                    # You can use relative urls
-                    relativeUrl: docs/faq.html
+                getting-started:
+                    text: Getting started
+                    relativeUrl: docs/getting-started.html
                 foo:
                     text: Another link
                     # Or absolute urls
