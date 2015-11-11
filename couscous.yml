@@ -24,7 +24,7 @@ menu:
                 home:
                     text: Home page
                     # You can use relative urls
-                    relativeUrl: doc/faq.html
+                    relativeUrl: docs/faq.html
                 foo:
                     text: Another link
                     # Or absolute urls
