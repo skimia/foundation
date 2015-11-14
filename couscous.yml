@@ -5,6 +5,7 @@ exclude:
     - src
     - tests
     - vendor
+    - gh-pages
 
 baseUrl: http://skimia.github.io/foundation
 
