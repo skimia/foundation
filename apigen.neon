@@ -1,7 +1,7 @@
 source:
     - ./src
 
-destination: ./api
+destination: ./gh-pages/api
 
 title: Skimia\Foundation
 

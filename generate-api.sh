@@ -18,6 +18,7 @@ wget http://www.apigen.org/apigen.phar
 # Generate Api
 php apigen.phar generate -s src -d gh-pages/api
 
+cd gh-pages
 # Push generated files
 git add .
 git commit -m "API updated"
