@@ -1,9 +1,4 @@
-# Get ApiGen.phar
-wget http://www.apigen.org/apigen.phar
-
-# Generate Api
 mkdir gh-pages
-php apigen.phar generate -s src -d gh-pages/api
 cd gh-pages
 
 # Set identity
@@ -14,6 +9,14 @@ git config --global user.name "Travis"
 git init
 git remote add origin https://${GH_TOKEN}@github.com/skimia/foundation.git > /dev/null
 git checkout -B gh-pages
+git pull origin gh-pages
+
+cd ..
+# Get ApiGen.phar
+wget http://www.apigen.org/apigen.phar
+
+# Generate Api
+php apigen.phar generate -s src -d gh-pages/api
 
 # Push generated files
 git add .
