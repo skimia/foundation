@@ -26,7 +26,7 @@ menu:
                     relativeUrl: docs/getting-started.html
                 api:
                     text: API
-                    relativeUrl: api/
+                    relativeUrl: api
         other:
             name: Other topics
             items:
