@@ -9,7 +9,6 @@ git config --global user.name "Travis"
 git init
 git remote add origin https://${GH_TOKEN}@github.com/skimia/foundation.git > /dev/null
 git checkout -B gh-pages
-git pull origin gh-pages
 
 cd ..
 # Get ApiGen.phar
