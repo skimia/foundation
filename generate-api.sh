@@ -13,7 +13,7 @@ git pull origin gh-pages
 
 cd ..
 
-../../bin/couscous generate --target gh-pages 
+../../bin/couscous generate --target gh-pages
 
 # Get ApiGen.phar
 wget http://www.apigen.org/apigen.phar
@@ -23,6 +23,6 @@ php apigen.phar generate -s src -d gh-pages/api
 
 cd gh-pages
 # Push generated files
-git add .
+git add --all .
 git commit -m "API updated"
 git push origin gh-pages -fq > /dev/null
