@@ -24,10 +24,9 @@ menu:
                 getting-started:
                     text: Getting started
                     relativeUrl: docs/getting-started.html
-                foo:
-                    text: Another link
-                    # Or absolute urls
-                    absoluteUrl: https://example.com
+                api:
+                    text: API
+                    relativeUrl: api/
         other:
             name: Other topics
             items:
