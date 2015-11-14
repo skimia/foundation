@@ -12,6 +12,9 @@ git checkout -B gh-pages
 git pull origin gh-pages
 
 cd ..
+
+../../bin/couscous generate --target=gh-pages --php-version=5.6
+
 # Get ApiGen.phar
 wget http://www.apigen.org/apigen.phar
 
