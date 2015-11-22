@@ -1,6 +1,7 @@
 {
     "name": "skimia/foundation",
     "description": "fournis une multitude de helpers et de fonctionnalitées préconçues pour gagner du temps",
+    "version": "0.1.0",
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
