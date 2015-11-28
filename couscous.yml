@@ -28,6 +28,21 @@ menu:
                 api:
                     text: API
                     relativeUrl: api
-        other:
-            name: Other topics
+        annotations:
+            name: Annotations
             items:
+                getting-started:
+                    text: Utilisation
+                    relativeUrl: docs/annotations/index.html
+        providers:
+            name: Providers
+            items:
+                getting-started:
+                    text: Utilisation
+                    relativeUrl: docs/providers/index.html
+        exceptions:
+            name: Exceptions
+            items:
+                getting-started:
+                    text: Utilisation
+                    relativeUrl: docs/exceptions/index.html
