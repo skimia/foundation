@@ -1,5 +1,5 @@
 template:
-    url: https://github.com/CouscousPHP/Template-ReadTheDocs
+    url: https://github.com/CouscousPHP/Template-Light
 
 exclude:
     - src
