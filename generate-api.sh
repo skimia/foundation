@@ -13,7 +13,9 @@ git pull origin gh-pages
 
 cd ..
 
-../../bin/couscous generate --target gh-pages
+curl -OS http://couscous.io/couscous.phar
+
+php couscous.phar generate --target gh-pages
 
 # Get ApiGen.phar
 wget http://www.apigen.org/apigen.phar
