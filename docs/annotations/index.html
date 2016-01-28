@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Annotations</title>
+
+        <link rel="stylesheet" href="http://skimia.github.io/foundation/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://skimia.github.io/foundation/css/font-awesome.min.css">
+        <link rel="stylesheet" href="http://skimia.github.io/foundation/css/highlight.tomorrow-night.css">
+        <link rel="stylesheet" href="http://skimia.github.io/foundation/css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand" href="http://skimia.github.io/foundation/">
+                Annotations
+                <small class="hidden-xs hidden-sm">
+                    The skimia Package to add laravel features
+                </small>
+            </a>
+
+                            <a href="https://github.com/skimia/foundation">
+                    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+                </a>
+            
+        </header>
+
+        <main class="container-fluid">
+            <div class="row">
+
+                
+                    <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
+
+                                                    <p class="text-muted">
+                                Introduction
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+                                        <a href="http://skimia.github.io/foundation/docs/getting-started.html">
+                                            Getting started
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="http://skimia.github.io/foundation/api">
+                                            API
+                                        </a>
+                                    </li>
+                                                            </ul>
+                                                    <p class="text-muted">
+                                Annotations
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+                                        <a href="http://skimia.github.io/foundation/docs/annotations/index.html">
+                                            Utilisation
+                                        </a>
+                                    </li>
+                                                            </ul>
+                                                    <p class="text-muted">
+                                Providers
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+                                        <a href="http://skimia.github.io/foundation/docs/providers/index.html">
+                                            Utilisation
+                                        </a>
+                                    </li>
+                                                            </ul>
+                                                    <p class="text-muted">
+                                Exceptions
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+                                        <a href="http://skimia.github.io/foundation/docs/exceptions/index.html">
+                                            Utilisation
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        
+                    </nav>
+
+                
+                <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
+                    <p>Le composant Annotation fournit les fonctionnalitées de scan d'annotation sur un projet laravel facilement et rapidement en utilisant 2 Classes et des Annotations</p>
+<h2 id="lannotation-scanner-skimiafoundationannotationsscanner">L'annotation Scanner (Skimia\Foundation\Annotations\Scanner)</h2>
+<p>Se charge de scanner les classes et de générer le fichier de Scan (chargé de retranscrire les annotations scannées en equivalent php comprehensible par laravel ou le package utilisé)</p>
+<h3 id="crer-un-nouveau-scanner">Créer un nouveau Scanner</h3>
+<p>pour cela il faut créer une nouvelle classe étandant du Scanner (Skimia\Foundation\Annotations\Scanner) pour la configuration, il faut définir certaines methodes a cette classe fraîchement crée.</p>
+<h4 id="fichier-de-scan">Fichier de scan</h4>
+<p>configuration de l'emplacement du fichier de scan de préférence dans le dossier storage de l'application.</p>
+<pre><code class="language-php">      public function getScannedAnnotationPath()
+      {
+            return $this-&gt;app['path.storage'] . '/framework/api.routes.scanned.php';
+      }</code></pre>
+<h4 id="gnration-du-fichier-de-scan">Génération du fichier de scan</h4>
+<h4 id="chargement-du-fichier-de-scan">Chargement du fichier de scan</h4>
+<h4 id="annotation-utilise-dan-lexemple">Annotation utilisée dan l'exemple</h4>
+<pre><code class="language-php">        /**
+         * @Annotation
+         */
+        class ApiResource {
+
+            /**
+             * The events the annotation hears.
+             *
+             * @var array
+             */
+            public $resourceEndPoint;
+
+            /**
+             * The api version.
+             *
+             * @var array
+             */
+            public $version;
+
+            /**
+             * The events the annotation hears.
+             *
+             * @var array
+             */
+            public $values;
+
+            /**
+             * Create a new annotation instance.
+             *
+             * @param  array $values
+             *
+             * @return void
+             */
+            public function __construct(array $values = [])
+            {
+                $this-&gt;resourceEndPoint = $values['value'];
+                $this-&gt;version =  $values['version'];
+
+                unset($values['value'],$values['version']);
+
+                $this-&gt;values = (array) $values;
+            }
+        }</code></pre>
+                </section>
+
+            </div>
+        </main>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="http://yandex.st/highlightjs/7.5/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>

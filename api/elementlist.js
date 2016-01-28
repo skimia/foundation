@@ -1,0 +1,3 @@
+
+var ApiGen = ApiGen || {};
+ApiGen.elements = [["f","ensure_trait_used_in_subclass_of_or_fail()"],["c","Exception"],["f","is_subclass_of_or_fail()"],["c","LogicException"],["c","Skimia\\Foundation\\Annotations\\BaseServiceProvider"],["c","Skimia\\Foundation\\Annotations\\Scanner"],["c","Skimia\\Foundation\\Exceptions\\Fail\\InvalidSuperclassUsedForTraitException"],["c","Skimia\\Foundation\\Exceptions\\Fail\\IsNotASubclassOfException"],["c","Skimia\\Foundation\\FoundationServiceProvider"],["c","Skimia\\Foundation\\Providers\\Traits\\CommandLoaderTrait"],["c","Skimia\\Foundation\\Support\\Traits\\NamespaceClassFinderTrait"]];

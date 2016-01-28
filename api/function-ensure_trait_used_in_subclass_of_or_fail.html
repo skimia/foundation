@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Function ensure_trait_used_in_subclass_of_or_fail | Skimia\Foundation</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?49f43d3208c5d7e33fa16d36107a345bf11cc00d">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">Skimia\Foundation</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-None.html" title="Summary of None"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Function</span>					</li>
+
+					<li class="divider-vertical"></li>
+
+					<li>
+						<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+					</li>
+
+						<li>
+							<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+								<span>Todo</span>
+							</a>
+						</li>
+
+					<li class="divider-vertical"></li>
+
+					<li>
+						<a href="-API-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li class="active">
+						<a href="namespace-None.html">
+							None						</a>
+							</li>
+					<li>
+						<a href="namespace-PHP.html">
+							PHP						</a>
+							</li>
+					<li>
+						<a href="namespace-Skimia.html">
+							Skimia<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-Skimia.Foundation.html">
+							Foundation<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-Skimia.Foundation.Annotations.html">
+							Annotations						</a>
+							</li>
+					<li>
+						<a href="namespace-Skimia.Foundation.Exceptions.html">
+							Exceptions<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-Skimia.Foundation.Exceptions.Fail.html">
+							Fail						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-Skimia.Foundation.Providers.html">
+							Providers<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-Skimia.Foundation.Providers.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-Skimia.Foundation.Support.html">
+							Support<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-Skimia.Foundation.Support.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li class="active"><a href="function-ensure_trait_used_in_subclass_of_or_fail.html">ensure_trait_used_in_subclass_of_or_fail</a></li>
+				<li><a href="function-is_subclass_of_or_fail.html">is_subclass_of_or_fail</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="function">
+	<h1>Function ensure_trait_used_in_subclass_of_or_fail</h1>
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Located at</b>
+		<a href="source-function-ensure_trait_used_in_subclass_of_or_fail.html#22-40" title="Go to source code">
+			Exceptions/Fail/helpers.php
+		</a><br>
+	</div>
+
+
+	<div class="panel panel-default">
+        <div class="panel-heading"><h2>Parameters summary</h2></div>
+		<table class="summary table table-bordered table-striped" id="parameters">
+		<tr id="$trait">
+			<td class="name"><code></code></td>
+			<td class="value"><code><var>$trait</var></code></td>
+			<td>The trait name (use get_class(self)).</td>
+		</tr>
+		<tr id="$object">
+			<td class="name"><code></code></td>
+			<td class="value"><code><var>$object</var></code></td>
+			<td>A class name or an object instance. No error is generated if the class does not exist.</td>
+		</tr>
+		<tr id="$class_name">
+			<td class="name"><code></code></td>
+			<td class="value"><code><var>$class_name</var></code></td>
+			<td>The required parent class name</td>
+		</tr>
+		<tr id="$allow_string">
+			<td class="name"><code>boolean|true</code></td>
+			<td class="value"><code><var>$allow_string</var> = <span class="php-keyword1">true</span></code></td>
+			<td></td>
+		</tr>
+		</table>
+	</div>
+
+	<div class="panel panel-default">
+        <div class="panel-heading"><h2>Return value summary</h2></div>
+		<table class="summary table table-bordered table-striped" id="returns">
+		<tr>
+			<td class="name"><code>
+				boolean
+			</code></td>
+			<td>
+				bool
+			</td>
+		</tr>
+		</table>
+	</div>
+
+	<div class="panel panel-default">
+        <div class="panel-heading"><h2>Thrown exceptions summary</h2></div>
+		<table class="summary table table-bordered table-striped" id="throws">
+		<tr>
+			<td class="name"><code>
+				<code><a href="class-LogicException.html">LogicException</a></code>
+			</code></td>
+			<td>
+				if the trait is used in class not extends the required
+			</td>
+		</tr>
+		</table>
+	</div>
+
+</div>
+	</div>
+
+	<div id="footer">
+		Skimia\Foundation API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+<script src="resources/combined.js?ee9385ba800b3ea3994d7067f926568b67cebfc5"></script>
+<script src="elementlist.js?f8b88e3db7764b5f636536931d031b7ab01b7f81"></script>
+</body>
+</html>

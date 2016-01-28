@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Exceptions</title>
+
+        <link rel="stylesheet" href="http://skimia.github.io/foundation/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://skimia.github.io/foundation/css/font-awesome.min.css">
+        <link rel="stylesheet" href="http://skimia.github.io/foundation/css/highlight.tomorrow-night.css">
+        <link rel="stylesheet" href="http://skimia.github.io/foundation/css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand" href="http://skimia.github.io/foundation/">
+                Exceptions
+                <small class="hidden-xs hidden-sm">
+                    The skimia Package to add laravel features
+                </small>
+            </a>
+
+                            <a href="https://github.com/skimia/foundation">
+                    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+                </a>
+            
+        </header>
+
+        <main class="container-fluid">
+            <div class="row">
+
+                
+                    <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
+
+                                                    <p class="text-muted">
+                                Introduction
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+                                        <a href="http://skimia.github.io/foundation/docs/getting-started.html">
+                                            Getting started
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="http://skimia.github.io/foundation/api">
+                                            API
+                                        </a>
+                                    </li>
+                                                            </ul>
+                                                    <p class="text-muted">
+                                Annotations
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+                                        <a href="http://skimia.github.io/foundation/docs/annotations/index.html">
+                                            Utilisation
+                                        </a>
+                                    </li>
+                                                            </ul>
+                                                    <p class="text-muted">
+                                Providers
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+                                        <a href="http://skimia.github.io/foundation/docs/providers/index.html">
+                                            Utilisation
+                                        </a>
+                                    </li>
+                                                            </ul>
+                                                    <p class="text-muted">
+                                Exceptions
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+                                        <a href="http://skimia.github.io/foundation/docs/exceptions/index.html">
+                                            Utilisation
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        
+                    </nav>
+
+                
+                <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
+                    <p>Le composant Exceptions fournit un ensemble d'exceptions et de helpers pour faciliter les tests et la gestion des erreurs</p>
+<h2 id="exceptions">Exceptions</h2>
+<ul>
+<li>IsNotASubclassOfException //todo</li>
+<li>InvalidSuperclassUsedForTraitException //todo</li>
+</ul>
+<h2 id="helpers">Helpers</h2>
+<h3 id="fails-functions">Fails functions</h3>
+<p>fournis une implementation des fonctions php (natives ou non) avec envois d'exceptions automatiquement lorsque la fonction ou le test échoue</p>
+<h4 id="is_subclass_of_or_fail">is_subclass_of_or_fail</h4>
+<p>Vérifie que la classe <code>$object</code> est bien une classe enfante de <code>$class_name</code> ou envoie une exception de Type
+<code>IsNotASubclassOfException</code></p>
+<pre><code class="language-php">        bool is_subclass_of_or_fail ( mixed $object , string $class_name [, bool $allow_string = TRUE ] )</code></pre>
+<h4 id="ensure_trait_used_in_subclass_of_or_fail">ensure_trait_used_in_subclass_of_or_fail</h4>
+<p>Vérifie que le trait <code>$trait</code> est bien utilisé dans une classe <code>$object</code> qui est enfant de <code>$class_name</code> ou envoie une exception de Type
+<code>InvalidSuperclassUsedForTraitException</code></p>
+<pre><code class="language-php">        bool ensure_trait_used_in_subclass_of_or_fail (string $trait, mixed $object , string $class_name [, bool $allow_string = TRUE ] )</code></pre>
+                </section>
+
+            </div>
+        </main>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="http://yandex.st/highlightjs/7.5/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>
