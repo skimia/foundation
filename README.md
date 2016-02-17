@@ -6,6 +6,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/skimia/foundation.svg?style=flat-square)](https://packagist.org/packages/skimia/foundation)
 [![License](https://img.shields.io/packagist/l/skimia/foundation.svg?style=flat-square)](https://packagist.org/packages/skimia/foundation)
 [![StyleCI](https://styleci.io/repos/45420482/shield)](https://styleci.io/repos/45420482)
+[![Gitter](https://img.shields.io/gitter/room/skimia/StumpCMF.svg?style=flat-square)](https://gitter.im/skimia/StumpCMF?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
 ## Features
 
