@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class Skimia\Foundation\FoundationServiceProvider | Skimia\Foundation</title>
+	<title>Class Skimia\Foundation\Testing\CommandOutput | Skimia\Foundation</title>
 
 	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
 	<link rel="stylesheet" href="resources/style.css?49f43d3208c5d7e33fa16d36107a345bf11cc00d">
@@ -28,7 +28,7 @@
 
 				<ul class="nav navbar-nav">
 					<li>
-						<a href="namespace-Skimia.Foundation.html" title="Summary of Skimia\Foundation"><span>Namespace</span></a>
+						<a href="namespace-Skimia.Foundation.Testing.html" title="Summary of Skimia\Foundation\Testing"><span>Namespace</span></a>
 					</li>
 					<li class="active">
 <span>Class</span>					</li>
@@ -113,7 +113,7 @@
 							Traits						</a>
 							</li>
 								</ul></li>
-					<li>
+					<li class="active">
 						<a href="namespace-Skimia.Foundation.Testing.html">
 							Testing<span></span>
 						</a>
@@ -130,9 +130,13 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li class="active"><a href="class-Skimia.Foundation.FoundationServiceProvider.html">FoundationServiceProvider</a></li>
+				<li class="active"><a href="class-Skimia.Foundation.Testing.CommandOutput.html">CommandOutput</a></li>
 			</ul>
 
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Skimia.Foundation.Testing.TestablePromptCommandInterface.html">TestablePromptCommandInterface</a></li>
+			</ul>
 
 
 
@@ -146,19 +150,19 @@
 <div id="right">
 	<div id="rightInner">
 <div id="content" class="class">
-	<h1>Class FoundationServiceProvider</h1>
+	<h1>Class CommandOutput</h1>
 
 
 
 	<dl class="tree well">
 		<dd style="padding-left:0px">
-Illuminate\Support\ServiceProvider
+Symfony\Component\Console\Output\NullOutput
 			
 			
 		</dd>
 		<dd style="padding-left:30px">
 			<img src="resources/inherit.png" alt="Extended by">
-<b><span>Skimia\Foundation\FoundationServiceProvider</span></b>			
+<b><span>Skimia\Foundation\Testing\CommandOutput</span></b>			
 			
 			
 		</dd>
@@ -174,10 +178,10 @@ Illuminate\Support\ServiceProvider
 	<div class="alert alert-info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Skimia.html">Skimia</a>\<a href="namespace-Skimia.Foundation.html">Foundation</a><br>
+		<b>Namespace:</b> <a href="namespace-Skimia.html">Skimia</a>\<a href="namespace-Skimia.Foundation.html">Foundation</a>\<a href="namespace-Skimia.Foundation.Testing.html">Testing</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Skimia.Foundation.FoundationServiceProvider.html#7-18" title="Go to source code">FoundationServiceProvider.php</a>
+			<b>Located at</b> <a href="source-class-Skimia.Foundation.Testing.CommandOutput.html#14-39" title="Go to source code">Testing/CommandOutput.php</a>
 		<br>
 	</div>
 
@@ -186,7 +190,7 @@ Illuminate\Support\ServiceProvider
 		<div class="panel panel-default">
 			<div class="panel-heading"><h2>Methods summary</h2></div>
 			<table class="summary table table-bordered table-striped methods" id="methods">
-		<tr data-order="register" id="_register">
+		<tr data-order="writeln" id="_writeln">
 
 			<td class="attributes"><code>
 				 public 
@@ -196,15 +200,73 @@ Illuminate\Support\ServiceProvider
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#_register">#</a>
-			<code><a href="source-class-Skimia.Foundation.FoundationServiceProvider.html#9-17" title="Go to source code">register</a>( )</code>
+			<a class="anchor" href="#_writeln">#</a>
+			<code><a href="source-class-Skimia.Foundation.Testing.CommandOutput.html#19-23" title="Go to source code">writeln</a>( <span> <var>$messages</var></span>, <span> <var>$type</var> = self::OUTPUT_NORMAL</span> )</code>
 
 			<div class="description short">
-				<p>Register the service provider.</p>
+				
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Register the service provider.</p>
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getOutputs" id="_getOutputs">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getOutputs">#</a>
+			<code><a href="source-class-Skimia.Foundation.Testing.CommandOutput.html#25-27" title="Go to source code">getOutputs</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="contains" id="_contains">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_contains">#</a>
+			<code><a href="source-class-Skimia.Foundation.Testing.CommandOutput.html#29-37" title="Go to source code">contains</a>( <span> <var>$needle</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
 
 
 
@@ -222,6 +284,42 @@ Illuminate\Support\ServiceProvider
 
 
 
+
+
+
+
+
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h2>Properties summary</h2></div>
+			<table class="summary table table-bordered table-striped properties" id="properties">
+		<tr data-order="outputs" id="$outputs">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Skimia.Foundation.Testing.CommandOutput.html#17" title="Go to source code"><var>$outputs</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$outputs" class="anchor">#</a>
+					<code>[]</code>
+				</div>
+			</td>
+		</tr>
+			</table>
+		</div>
 
 
 

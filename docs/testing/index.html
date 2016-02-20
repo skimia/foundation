@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Annotations</title>
+        <title>testing</title>
 
         <link rel="stylesheet" href="http://skimia.github.io/foundation/css/bootstrap.min.css">
         <link rel="stylesheet" href="http://skimia.github.io/foundation/css/font-awesome.min.css">
@@ -16,7 +16,7 @@
         <header class="navbar navbar-default navbar-fixed-top">
 
             <a class="navbar-brand" href="http://skimia.github.io/foundation/">
-                Annotations
+                testing
                 <small class="hidden-xs hidden-sm">
                     The skimia Package to add laravel features
                 </small>
@@ -99,63 +99,87 @@
 
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <p>Le composant Annotation fournit les fonctionnalitées de scan d'annotation sur un projet laravel facilement et rapidement en utilisant 2 Classes et des Annotations</p>
-<h2 id="lannotation-scanner-skimiafoundationannotationsscanner">L'annotation Scanner (Skimia\Foundation\Annotations\Scanner)</h2>
-<p>Se charge de scanner les classes et de générer le fichier de Scan (chargé de retranscrire les annotations scannées en equivalent php comprehensible par laravel ou le package utilisé)</p>
-<h3 id="crer-un-nouveau-scanner">Créer un nouveau Scanner</h3>
-<p>pour cela il faut créer une nouvelle classe étandant du Scanner (Skimia\Foundation\Annotations\Scanner) pour la configuration, il faut définir certaines methodes a cette classe fraîchement crée.</p>
-<h4 id="fichier-de-scan">Fichier de scan</h4>
-<p>configuration de l'emplacement du fichier de scan de préférence dans le dossier storage de l'application.</p>
-<pre><code class="language-php">      public function getScannedAnnotationPath()
-      {
-            return $this-&gt;app['path.storage'] . '/framework/api.routes.scanned.php';
-      }</code></pre>
-<h4 id="gnration-du-fichier-de-scan">Génération du fichier de scan</h4>
-<h4 id="chargement-du-fichier-de-scan">Chargement du fichier de scan</h4>
-<h4 id="annotation-utilise-dan-lexemple">Annotation utilisée dan l'exemple</h4>
-<pre><code class="language-php">        /**
-         * @Annotation
-         */
-        class ApiResource {
+                    <p>Le composant testing fournit un ensemble de fonctionnalitées pour faciliter les tests.</p>
+<h2 id="testing-moked-commands">Testing Moked Commands</h2>
+<p>pour executer une commande <code>moked</code> depuis les tests, inclure l'utilisation du trait <code>Skimia\Foundation\Testing\Traits\CommandTrait</code>
+sur le <code>TestCase</code> charger de tester la commande <code>moked</code>, il definit :</p>
+<h4 id="methode-invokecommand">Methode invokeCommand</h4>
+<pre><code class="language-php">/**
+ * @param \Illuminate\Console\Command $mockedCommandObject
+ * @param array $arguments
+ * @return int
+ */
+public function invokeCommand(Command $mockedCommandObject, $arguments = []);</code></pre>
+<p>permet d'initialiser la commande avec un mode de sortie pour logger l'affichage console</p>
+<h4 id="methode-getcommandoutput">Methode getCommandOutput</h4>
+<pre><code class="language-php">/**
+ * @return Skimia\Foundation\Testing\CommandOutput
+ */
+public function getCommandOutput();</code></pre>
+<p>retourne le logger d'affiche console qui via sa methode <code>getOutputs()</code> permet de récuperer sous forme d'array la liste des lignes affichées durant les tests de la commande <code>moked</code></p>
+<blockquote>
+<p>il doit être réinitialisé a la main si l'on souhaite, sinon dans le cas ou plusieurs appels à <code>invokeCommand</code> sont executées dans la même <code>TestCase</code> le logger contiendra l'ensemble de tous les retours console des commandes exécutées</p>
+</blockquote>
+<p>exemple de retour :</p>
+<pre><code>array:5 [
+    0 =&gt; "&lt;comment&gt;Regeneration of assets collections...&lt;/comment&gt;"
+    1 =&gt; "&lt;comment&gt;added collections : jquery, angularjs, js-stack&lt;/comment&gt;"
+    2 =&gt; "&lt;ask&gt;Update Assets groups with the new or removed collections ? y/n&lt;/ask&gt;"
+    3 =&gt; "&lt;comment&gt;sorry in the new release ;)&lt;/comment&gt;"
+    4 =&gt; "&lt;comment&gt;done&lt;/comment&gt;"
+  ]
+</code></pre>
+<h4 id="methode-cleanoutputandinvokecommand">Methode cleanOutputAndInvokeCommand</h4>
+<pre><code class="language-php">/**
+ * @param \Illuminate\Console\Command $mockedCommandObject
+ * @param array $arguments
+ * @return int
+ */
+public function cleanOutputAndInvokeCommand(Command $mockedCommandObject, $arguments = []);</code></pre>
+<p>identique à <code>invokeCommand</code> hormis le fait qu'elle clean le log des retours console.</p>
+<h4 id="methode-invokecommandwithprompt">Methode invokeCommandWithPrompt</h4>
+<p>dans le cas ou la commande utilise des questions via la methode <code>ask()</code> il faut travailler notre commande pour que lors des test
+le logger soit appelé et les question &quot;nextées&quot;.</p>
+<pre><code class="language-php">/**
+ * @param TestablePromptCommandInterface $commandObject
+ * @param array $arguments
+ * @return int
+ */
+public function invokeCommandWithPrompt(TestablePromptCommandInterface $commandObject, $arguments = [])</code></pre>
+<p>identique à <code>invokeCommand</code> dans l'utilisation mais nécessite de lui passer en paramètre une commande utilisant l'interface <code>Skimia\Foundation\Testing\TestablePromptCommandInterface</code>
+elle peut être implémentée grâce au trait <code>Skimia\Foundation\Testing\Traits\TestableCommandTrait</code></p>
+<p>il permet dans le cas ou un ConsoleOutput est utilisé de ne pas executer le comportement de base des methodes <code>ask</code> et retourne directement après avoir loggé la question, de retourner la valeur par defaut.</p>
+<blockquote>
+<p>cependant Attention au cas ou une valeur par defaut est nulle, la valeur de retour sera forcée a NULL même si la validation est configurée pour forcer l'utilisateur a entrer une valeur.</p>
+</blockquote>
+<h3 id="exemple-de-methode-de-test">Exemple de methode de test</h3>
+<pre><code class="language-php">public function testCommand(){
 
-            /**
-             * The events the annotation hears.
-             *
-             * @var array
-             */
-            public $resourceEndPoint;
+    $scannerMock = Mockery::mock(Scanner::class.'[getScannedPath]',[app()])-&gt;shouldAllowMockingProtectedMethods();
 
-            /**
-             * The api version.
-             *
-             * @var array
-             */
-            public $version;
+    $scannerMock-&gt;shouldReceive('getScannedPath')-&gt;atLeast()-&gt;times(1)-&gt;andReturn($this-&gt;getGeneratedFilePath());
 
-            /**
-             * The events the annotation hears.
-             *
-             * @var array
-             */
-            public $values;
+    $commandMock = Mockery::mock(DumpCollectionsCommand::class.'[getScanner,getDirectories]')-&gt;shouldAllowMockingProtectedMethods();
 
-            /**
-             * Create a new annotation instance.
-             *
-             * @param  array $values
-             *
-             * @return void
-             */
-            public function __construct(array $values = [])
-            {
-                $this-&gt;resourceEndPoint = $values['value'];
-                $this-&gt;version =  $values['version'];
+    $commandMock-&gt;shouldReceive('getScanner')-&gt;atLeast()-&gt;times(1)-&gt;andReturn($scannerMock);
+    $commandMock-&gt;shouldReceive('getDirectories')-&gt;atLeast()-&gt;times(1)-&gt;andReturn($this-&gt;getDirectories());
 
-                unset($values['value'],$values['version']);
+    $this-&gt;invokeCommandWithPrompt($commandMock);
 
-                $this-&gt;values = (array) $values;
-            }
-        }</code></pre>
+    //est vrai si la chaine pasée est orésente dans une au moins des lignes retournées
+    $this-&gt;assertTrue($this-&gt;getCommandOutput()-&gt;contains('angularjs'));
+
+    //verifie si la question a été posée
+    $this-&gt;assertTrue($this-&gt;getCommandOutput()-&gt;contains('&lt;ask&gt;Update Assets'));
+
+    $this-&gt;assertTrue(File::exists($this-&gt;getGeneratedFilePath()));
+
+    require $this-&gt;getGeneratedFilePath();
+
+    $this-&gt;assertArrayHasKey('js-stack',Assets::group('default')-&gt;getCollections());
+
+    File::delete($this-&gt;getGeneratedFilePath());
+}</code></pre>
                 </section>
 
             </div>
