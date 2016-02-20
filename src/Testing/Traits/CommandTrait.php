@@ -5,10 +5,10 @@ namespace Skimia\Foundation\Testing\Traits;
 use Skimia\Foundation\Testing\CommandOutput;
 use Skimia\Foundation\Testing\TestablePromptCommandInterface;
 use Symfony\Component\Console\Input\ArrayInput;
-use Illuminate\Console\Command ;
+use Illuminate\Console\Command;
+
 trait CommandTrait
 {
-
     /**
      * @var null
      */
@@ -17,9 +17,11 @@ trait CommandTrait
     /**
      * @return CommandOutput
      */
-    public function getCommandOutput(){
-        if(!isset($this->commandOutput))
+    public function getCommandOutput()
+    {
+        if (! isset($this->commandOutput)) {
             $this->commandOutput = new CommandOutput;
+        }
 
         return $this->commandOutput;
     }
@@ -29,8 +31,8 @@ trait CommandTrait
      * @param array $arguments
      * @return int
      */
-    public function invokeCommand(Command $mockedCommandObject, $arguments = []){
-
+    public function invokeCommand(Command $mockedCommandObject, $arguments = [])
+    {
         $mockedCommandObject->setLaravel(app());
 
         return $mockedCommandObject->run(new ArrayInput($arguments),
@@ -42,17 +44,17 @@ trait CommandTrait
      * @param array $arguments
      * @return int
      */
-    public function invokeCommandWithPrompt(TestablePromptCommandInterface $commandObject, $arguments = []){
-
-
+    public function invokeCommandWithPrompt(TestablePromptCommandInterface $commandObject, $arguments = [])
+    {
         $commandObject->setCommandOutput($this->getCommandOutput());
-        return $this->invokeCommand($commandObject,$arguments);
+
+        return $this->invokeCommand($commandObject, $arguments);
     }
 
-    public function cleanOutputAndInvokeCommand(\Illuminate\Console\Command $commandObject, $arguments = []){
-
+    public function cleanOutputAndInvokeCommand(\Illuminate\Console\Command $commandObject, $arguments = [])
+    {
         $this->commandOutput = null;
 
-        return $this->invokeCommand($commandObject,$arguments);
+        return $this->invokeCommand($commandObject, $arguments);
     }
 }
