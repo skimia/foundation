@@ -46,3 +46,9 @@ menu:
                 getting-started:
                     text: Utilisation
                     relativeUrl: docs/exceptions/index.html
+        testing:
+            name: Testing
+            items:
+                getting-started:
+                    text: Utilisation
+                    relativeUrl: docs/testing/index.html
