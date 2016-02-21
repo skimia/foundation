@@ -17,6 +17,7 @@ class AnnotationRegistryTest extends TestCase
         foreach (Finder::create()->files()->in(__DIR__.'/fixtures/Annotations') as $file) {
             AnnotationRegistry::registerFile($file->getRealPath());
         }
+
         return $scanner;
     }
 
@@ -29,9 +30,10 @@ class AnnotationRegistryTest extends TestCase
         $file_exist = $scanner->annotationsAreScanned();
         $this->assertTrue(class_exists(TestAnnotation::class));
 
-        if($file_exist)
+        if ($file_exist) {
             $this->assertFileExists($scanner->getScannedAnnotationPath());
-        else
+        } else {
             $this->assertFileNotExists($scanner->getScannedAnnotationPath());
+        }
     }
 }
