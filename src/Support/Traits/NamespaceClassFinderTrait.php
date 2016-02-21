@@ -4,6 +4,9 @@ namespace Skimia\Foundation\Support\Traits;
 
 use Illuminate\Console\AppNamespaceDetectorTrait;
 
+/**
+ * @codeCoverageIgnore
+ */
 trait NamespaceClassFinderTrait
 {
     use AppNamespaceDetectorTrait;

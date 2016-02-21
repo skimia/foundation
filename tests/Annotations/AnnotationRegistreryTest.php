@@ -8,7 +8,7 @@ class AnnotationRegistryTest extends TestCase
     /**
      * A basic functional test example.
      *
-     * @return void
+     * @return Skimia\ApiFusion\Annotations\ApiRouting\Scanner
      */
     public function registerAnnotations()
     {
@@ -17,6 +17,7 @@ class AnnotationRegistryTest extends TestCase
         foreach (Finder::create()->files()->in(__DIR__.'/fixtures/Annotations') as $file) {
             AnnotationRegistry::registerFile($file->getRealPath());
         }
+        return $scanner;
     }
 
     /**
@@ -24,7 +25,13 @@ class AnnotationRegistryTest extends TestCase
      */
     public function testAnnotationsRegistered()
     {
-        $this->registerAnnotations();
+        $scanner = $this->registerAnnotations();
+        $file_exist = $scanner->annotationsAreScanned();
         $this->assertTrue(class_exists(TestAnnotation::class));
+
+        if($file_exist)
+            $this->assertFileExists($scanner->getScannedAnnotationPath());
+        else
+            $this->assertFileNotExists($scanner->getScannedAnnotationPath());
     }
 }

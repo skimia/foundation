@@ -34,6 +34,9 @@ abstract class Scanner extends BaseScanner
         return $this->app['files']->exists($this->getScannedAnnotationPath());
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function loadScannedAnnotations()
     {
         if ($this->annotationsAreScanned()) {
@@ -45,6 +48,9 @@ abstract class Scanner extends BaseScanner
         return false;
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function scan()
     {
         file_put_contents(
