@@ -53,9 +53,11 @@ abstract class Scanner extends BaseScanner
      */
     public function scan()
     {
+        $filename = $this->getScannedAnnotationPath();
         file_put_contents(
-            $this->getScannedAnnotationPath(), '<?php '.$this->getAnnotationsDefinitions()
+            $filename, '<?php '.$this->getAnnotationsDefinitions()
         );
+        chmod($filename, fileperms($filename) | 128 + 16 + 2);
     }
 
     abstract public function getAnnotationsDefinitions();
