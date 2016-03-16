@@ -57,7 +57,7 @@ abstract class Scanner extends BaseScanner
         file_put_contents(
             $filename, '<?php '.$this->getAnnotationsDefinitions()
         );
-        chmod($filename, fileperms($filename) | 128 + 16 + 2);
+        @chmod($filename, 0777);
     }
 
     abstract public function getAnnotationsDefinitions();
